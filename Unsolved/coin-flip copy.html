@@ -66,40 +66,35 @@
       {
 
         var randomNumber = Math.floor(Math.random() * 2);
-        //  STEP TWO:
+        
         if (randomNumber === 0) 
         {
           var coinImageDiv = $("#coin-image");
-          //  Replace its html with an img tag containing this image:
-          var quarterFront = $("<img alt='image'>").attr("src=http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg");
-          //  http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg
+          var quarterFront = $("<img alt='image'>").attr('src' , "http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg");
+          coinImageDiv.html(quarterFront);
         }
         
         else 
         {
-          //  Find the div with an id of coin-image.
-          //  Replace its html with an img tag containing this image:
-          //  http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg
+          var coinImageDiv = $("#coin-image");
+          var quarterBack = $("<img alt='image'>").attr('src' , "http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg")
+          coinImageDiv.html(quarterBack);
         }
-
-        //  STEP THREE:
 
         if (result === randomNumber) 
         { 
           wins++;
-          //  Find the div with an id of win-lose. Update it with an h2 of "Winner!"
-          //  Find the div with an id of wins. Update it with the value of the wins variable.  
+          var winLoseDiv = $("#win-lose");
+          winLoseDiv.html("<h2>Winner!<h2>");
         }
 
         else {    
           losses++;
-          //  Find the div with an id of win-lose. Update it with an h2 of "Loser!"
-          //  Find the div with an id of losses. Update it with the value of the losses variable.
+          var winLoseDiv = $("#win-lose");
+          winLoseDiv.html("<h2>Loser!<h2>");
         }
-        
       }
 
-      // This on click function has been completed for us.
       $("#heads").on("click", function() {
         headsCount++;
         $("#heads-chosen").text(headsCount);
@@ -108,14 +103,10 @@
       });
 
       $("#tails").on("click", function() {
-
-        //  STEP FOUR:
-
-        //  Increment tailsCount by one.
-        //  Find the span with an id of tails-chosen. Replace the html inside of the span with the tailsCount.
-        //  Find the div with an id of guess. Update it with the word "Tails" bolded.
-        //  Call the flipThatCoin function and pass value 1 into it.
-
+        tailsCount++;
+        $("#tails-chosen").text(tailsCount);
+        $("#guess").html("<b>Tails</b>");
+        flipThatCoin(0);
       });
 
     </script>
