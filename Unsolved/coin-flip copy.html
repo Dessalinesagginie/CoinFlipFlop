@@ -1,4 +1,3 @@
-<!-- Coin Flip HTML -->
 <!DOCTYPE html>
 
 <html lang="en-us">
@@ -54,68 +53,70 @@
 
     </div>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-    // Coin Flip JavaScript
-    // These variables are declared for us.
-    var headsCount = 0;
-    var tailsCount = 0;
-    var wins = 0;
-    var losses = 0;
+      var headsCount = 0;
+      var tailsCount = 0;
+      var wins = 0;
+      var losses = 0;
 
-    function flipThatCoin(result) {
+      function flipThatCoin(result) 
+      {
 
-      //  STEP ONE:
-
-          var randomNumber = Math.floor(Math.random() * 2);
-      //  STEP TWO:
-      if (randomNumber === 0) {
-          //  Find the div with an id of coin-image.
+        var randomNumber = Math.floor(Math.random() * 2);
+        //  STEP TWO:
+        if (randomNumber === 0) 
+        {
+          var coinImageDiv = $("#coin-image");
           //  Replace its html with an img tag containing this image:
+          var quarterFront = $("<img alt='image'>").attr("src=http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg");
           //  http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg
         }
-           
-        else {
+        
+        else 
+        {
           //  Find the div with an id of coin-image.
           //  Replace its html with an img tag containing this image:
           //  http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg
         }
 
-      //  STEP THREE:
+        //  STEP THREE:
 
-      if (result === randomNumber) { 
+        if (result === randomNumber) 
+        { 
           wins++;
           //  Find the div with an id of win-lose. Update it with an h2 of "Winner!"
           //  Find the div with an id of wins. Update it with the value of the wins variable.  
         }
 
-      else {    
-            losses++;
-            //  Find the div with an id of win-lose. Update it with an h2 of "Loser!"
-            //  Find the div with an id of losses. Update it with the value of the losses variable.
+        else {    
+          losses++;
+          //  Find the div with an id of win-lose. Update it with an h2 of "Loser!"
+          //  Find the div with an id of losses. Update it with the value of the losses variable.
         }
-    }
+        
+      }
 
-    // This on click function has been completed for us.
-    $("#heads").on("click", function() {
-      headsCount++;
-      $("#heads-chosen").text(headsCount);
-      $("#guess").html("<b>Heads</b>");
-      flipThatCoin(0);
-    });
+      // This on click function has been completed for us.
+      $("#heads").on("click", function() {
+        headsCount++;
+        $("#heads-chosen").text(headsCount);
+        $("#guess").html("<b>Heads</b>");
+        flipThatCoin(0);
+      });
 
-    $("#tails").on("click", function() {
+      $("#tails").on("click", function() {
 
-      //  STEP FOUR:
+        //  STEP FOUR:
 
-      //  Increment tailsCount by one.
-      //  Find the span with an id of tails-chosen. Replace the html inside of the span with the tailsCount.
-      //  Find the div with an id of guess. Update it with the word "Tails" bolded.
-      //  Call the flipThatCoin function and pass value 1 into it.
+        //  Increment tailsCount by one.
+        //  Find the span with an id of tails-chosen. Replace the html inside of the span with the tailsCount.
+        //  Find the div with an id of guess. Update it with the word "Tails" bolded.
+        //  Call the flipThatCoin function and pass value 1 into it.
 
-    });
+      });
 
     </script>
 
